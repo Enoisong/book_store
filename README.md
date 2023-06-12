@@ -22,9 +22,9 @@
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
-# 📖 math-magician <a name="about-project"></a> 
+# 📖 book_store <a name="about-project"></a> 
 
-> math-magicians is a website for all fans of mathematics. It is a Single Page Application(SPA) that allows users to make simple calculations and read a random math-related quote.
+> book_store is a website created using React front-end framework.
  
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
