@@ -98,8 +98,8 @@ $ runs on http://localhost:3000/
 Install this project with:
  
 - VSCode
-- Git.
-- Github.
+- Git
+- Github
 
 ### Usage
 ### To run the project, execute the following command:  
