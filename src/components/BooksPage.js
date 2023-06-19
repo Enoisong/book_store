@@ -13,5 +13,5 @@ const BooksPage = () => {
       <Form />
     </div>
   );
-}; 
+};
 export default BooksPage;
