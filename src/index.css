@@ -11,10 +11,9 @@ body {
   background-color: rgb(156, 150, 150);
   display: flex;
   justify-content: center;
-  color:  solid black;
-  
-} 
- 
+  color: rgb(0, 0, 0);
+}
+
 #site-header {
   display: flex;
   justify-content: center;
