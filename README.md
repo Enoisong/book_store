@@ -24,7 +24,7 @@
 <!-- PROJECT DESCRIPTION -->
 # 📖 book_store <a name="about-project"></a> 
 
-> book_store is a website created using React front-end framework.
+> Welcome to Bookstore, it is an app that allows you to display a list of books, add a book, remove a selected book from the list, an update your progress.  
  
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
