@@ -1,16 +1,18 @@
-const ACTIVE = 'redux/categories/ACTIVE';
-const NOT_ACTIVE = 'redux/categories/NOT_ACTIVE';
+import { createSlice } from '@reduxjs/toolkit';
 
-const createActionForCategory = () => ({ type: NOT_ACTIVE });
-
-const reducerForCategory = (state = [], action) => {
-  switch (action.type) {
-    case ACTIVE:
-      return 'Under Construction';
-    default:
-      return state;
-  }
+const initialState = {
+  categories: [],
 };
 
-export default reducerForCategory;
-export { createActionForCategory };
+export const categories = createSlice({
+  name: 'Categories',
+  initialState,
+  reducers: {
+    updateCategories: (state, action) => {
+      state.categories = action.payload === 'Under Construction' ? 'Under Construction' : state.categories;
+    },
+  },
+});
+
+export const { updateCategories } = categories.actions;
+export default categories.reducer;

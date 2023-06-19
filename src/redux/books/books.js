@@ -1,29 +1,27 @@
-const ADD_BOOK = 'redux/books/ADD_BOOK';
-const REMOVE_BOOK = 'redux/books/REMOVE_BOOK';
+import { createSlice } from '@reduxjs/toolkit';
 
-const reducer = (initialState = [], action) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [...initialState, action.payload];
-    case REMOVE_BOOK:
-      return [...initialState.filter((book) => (book.id !== action.id))];
-    default:
-      return initialState;
-  }
-};
-
-const createActionForBookToAdd = (title, author) => ({
-  type: ADD_BOOK,
-  payload: {
-    title,
-    author,
+export const books = createSlice({
+  name: 'books',
+  initialState: {
+    books: [],
+  },
+  reducers: {
+    addBook: (state, action) => {
+      state.books = [
+        ...state.books,
+        {
+          id: Math.floor(Math.random() + 100),
+          title: action.payload.title,
+          author: action.payload.author,
+        },
+      ];
+    },
+    removeBook: (state, action) => {
+      state.books = state.books.filter((book) => book.id !== action.id);
+    },
   },
 });
 
-const createActionForBookToRemove = (id) => ({
-  type: REMOVE_BOOK,
-  payload: id,
-});
+export const { addBook, removeBook } = books.actions;
 
-export default reducer;
-export { createActionForBookToAdd, createActionForBookToRemove };
+export default books.reducer;
