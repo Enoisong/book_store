@@ -24,8 +24,8 @@
 <!-- PROJECT DESCRIPTION -->
 # 📖 book_store <a name="about-project"></a> 
 
-> Welcome to Bookstore, it is an app that allows you to display a list of books, add a book,
- remove a selected book from the list, an update your progress.  
+> Welcome to Bookstore, it is an app that allows you to display a list of books, add a book, 
+ remove a selected book from the list, and update your progress.
  
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
