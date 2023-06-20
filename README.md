@@ -156,7 +156,7 @@ If you like this project, give me a ⭐️ star!
 -	Thanks to the Code Reviewer(s) for the insightly feedbacks.
 -	A great thanks to my coding partner(s), morning session team 
   and  standup team for their contributions.
--  [Zeplin project](https://app.zeplin.io/project/5b35a9e13227086040f8eb75/screen/5b695e29bb8c844f118f9378)
+-  [Zeplin project](https://app.zeplin.io/project/5b35a9e13227086040f8eb75/screen/5b695e29bb8c844f118f9378).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
