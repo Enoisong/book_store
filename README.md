@@ -32,6 +32,7 @@
 - CSS
 - React.js
 - JavaScript
+- Redux
 
 ## Getting Start
 
