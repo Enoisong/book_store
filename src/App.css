@@ -8,12 +8,11 @@
   align-items: center;
 }
 
- .nav ul {
+.nav ul {
   display: flex;
   flex-direction: row;
   list-style: none;
   gap: 2rem;
-  
 }
 
 .heading .h1 {
@@ -21,9 +20,8 @@
   flex-direction: row;
   list-style: none;
   margin-left: -17rem;
-   
 }
 
 .nav ul a {
   text-decoration: none;
-} 
+}
