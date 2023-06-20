@@ -1,3 +1,27 @@
-.App {
-  text-align: center;
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 2rem;
+}
+
+.heading .h1 {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin-left: -17rem;
+}
+
+.nav ul a {
+  text-decoration: none;
 }
