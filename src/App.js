@@ -1,18 +1,28 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import BooksCollection from './components/BooksCollection';
+import { useDispatch } from 'react-redux';
+import { fetchBooks } from './redux/books/booksSlice';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 import Categories from './components/Categories';
-import Header from './components/Header';
-import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<BooksCollection />} />
-        <Route path="/Categories" element={<Categories />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 export default App;
