@@ -14,7 +14,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>      
+    <>
       <BrowserRouter>
         <Navbar />
         <Routes>

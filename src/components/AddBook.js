@@ -14,7 +14,7 @@ export default function AddBook() {
       item_id: Math.random().toString().substr(2, 6),
       title,
       author,
-      category: 'sci-fiction',
+      category: 'fiction',
     };
     dispatch(addBook(newBook));
     setTitle('');

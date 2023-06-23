@@ -1,3 +1,9 @@
 .user-icons {
   font-size: 50px;
 }
+
+.nav {
+  display: flex;
+  position: absolute;
+  align-items: flex-end;
+}

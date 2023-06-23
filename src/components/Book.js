@@ -1,6 +1,6 @@
-// eslint-disable  
-import React from 'react'; 
-import PropTypes from "prop-types";
+// eslint-disable
+import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteBook } from '../redux/books/booksSlice';
 
