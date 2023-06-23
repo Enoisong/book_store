@@ -1,13 +1,15 @@
 // eslint-disable
-import React from "react";
-import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { deleteBook } from "../redux/books/booksSlice";
-import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import { deleteBook } from '../redux/books/booksSlice';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default function Book(props) {
-  const { id, title, author, category } = props;
+  const {
+    id, title, author, category,
+  } = props;
   const dispatch = useDispatch();
 
   return (
@@ -15,18 +17,22 @@ export default function Book(props) {
       <div className="books">
         <span>{category}</span>
         <span>{title}</span>
-        <span> {author}</span>
+        <span>
+          {' '}
+          {author}
+        </span>
         <div className="buttons">
-        <button>Edit</button>
-        <button
-          onCli clsck={() => dispatch(deleteBook(id))}
-          className="btn"
-          id={id}
-          type="button"
-        >
-          remove
-        </button>
-        <button>Edit</button>
+          <button>Edit</button>
+          <button
+            onCli
+            clsck={() => dispatch(deleteBook(id))}
+            className="btn"
+            id={id}
+            type="button"
+          >
+            remove
+          </button>
+          <button>Edit</button>
 
         </div>
       </div>

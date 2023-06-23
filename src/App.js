@@ -14,7 +14,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className='appContainer'>
+    <div className="appContainer">
       <BrowserRouter>
         <Navbar />
         <Routes>
