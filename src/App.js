@@ -14,7 +14,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className='appContainer'>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 export default App;

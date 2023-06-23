@@ -1,31 +1,45 @@
 // eslint-disable
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { deleteBook } from '../redux/books/booksSlice';
+import React from "react";
+import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { deleteBook } from "../redux/books/booksSlice";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 export default function Book(props) {
-  const {
-    id, title, author, category,
-  } = props;
+  const { id, title, author, category } = props;
   const dispatch = useDispatch();
 
   return (
-    <div className="py-1 flex justify-between">
-      <span>{title}</span>
-      <span>
-        by :
-        {author}
-      </span>
-      <span>{category}</span>
-      <button
-        onClick={() => dispatch(deleteBook(id))}
-        className="big-gray-200 p-1"
-        id={id}
-        type="button"
-      >
-        remove
-      </button>
+    <div className="card">
+      <div className="books">
+        <span>{category}</span>
+        <span>{title}</span>
+        <span> {author}</span>
+        <div className="buttons">
+        <button>Edit</button>
+        <button
+          onCli clsck={() => dispatch(deleteBook(id))}
+          className="btn"
+          id={id}
+          type="button"
+        >
+          remove
+        </button>
+        <button>Edit</button>
+
+        </div>
+      </div>
+      <div className="progress">
+        <div className="bar">
+          <CircularProgressbar value={80} />
+        </div>
+        <div className="percentage">
+          <p>80%</p>
+          <p>completed</p>
+        </div>
+      </div>
+      <div className="chapters">Chapter 7</div>
     </div>
   );
 }
