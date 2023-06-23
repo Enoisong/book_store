@@ -1,43 +1,57 @@
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import style from '../styles/AddBook.module.css'; 
 import { addBook } from '../redux/books/booksSlice';
 
 export default function AddBook() {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-
-  const dispatch = useDispatch();
+  const [category, setCategory] = useState(''); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBook = {
-      item_id: Math.random().toString().substr(2, 6),
-      title,
-      author,
-      category: 'fiction',
-    };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
+    if (title && author && category) {
+      dispatch(addBook({ title, author, category }));
+      setTitle('');
+      setAuthor('');
+      setCategory('');
+    }
   };
-
   return (
-    <form className="container flex items-center justify-betweem gap-2">
-      <input
+    <div className={style['form-container']}>
+      <h2>ADD NEW BOOK</h2>
+      <form className={style['add-form']}>
+        <input
+        type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Book Title"
-        className="bg-gray-100 w-full"
+        placeholder="Book title"
+        required
       />
       <input
+        type="text"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
-        placeholder="Author Name"
-        className="bg-gray-100 w-full"
+        placeholder="Book author"
+        required
       />
-      <button onClick={handleSubmit} className="text-right text-gray-600" type="submit">
-        AddBook
+      <select
+      name="categry"
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+      >
+        <option hidden value="" disabled selected>
+          Category
+        </option>
+        <option value="Action">Action</option>
+        <option value="Fiction">Literary Fiction</option>
+        <option value="Humanities">Humanities</option>
+      </select>
+      <button type="submit" onClick={handleSubmit}>
+        ADD BOOK
       </button>
-    </form>
-  );
-}
+      </form>
+    </div>
+  );  
+  }
