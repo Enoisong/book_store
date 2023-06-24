@@ -14,16 +14,13 @@ export default function Navigation() {
             </li>
             <li>
               <NavLink to="/categories">CATEGORIES</NavLink>
-            </li>                     
-          </ul>          
+            </li>
+          </ul>
         </nav>
-      </div>     
-      <div className={styles['nav-icon']}>  
-      <img src="https://s3.amazonaws.com/pix.iemoji.com/andr33/0497.png" alt=" "></img>            
+      </div>
+      <div className={styles['nav-icon']}>
+        <img src="https://s3.amazonaws.com/pix.iemoji.com/andr33/0497.png" alt=" " />
       </div>
     </header>
   );
 }
-
- 
-               
