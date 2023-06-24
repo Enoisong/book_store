@@ -24,7 +24,7 @@
 <!-- PROJECT DESCRIPTION -->
 # 📖 book_store <a name="about-project"></a> 
 
-> Welcome to book_store! book_store is an app that allows you to display list of books, add books,
+> Welcome to my book_store web app! book_store allows you to display list of books, add books,
  remove selected books from the list, and update your progress.
  
 ## 🛠 Built With <a name="built-with"></a>

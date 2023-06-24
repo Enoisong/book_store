@@ -1,87 +1,85 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
-const API_BASE = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
-const API_KEY = '3jGBFyMfV9aLGeBO5IhU';
-const URL = `${API_BASE}/apps/${API_KEY}/books`;
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+const appId = '3jGBFyMfV9aLGeBO5IhU';
 
 const initialState = {
   books: [],
-  isLoading: false,
+  status: 'idle',
 };
 
-// fetch books
-export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-  try {
-    const books = await axios.get(URL);
-    const result = books.data;
-    const array = Object.keys(result).map((key) => ({
-      item_id: key,
-      ...result[key][0],
-    }));
-    return array;
-  } catch (error) {
-    throw new Error('Error : Faild to fetch books');
-  }
+export const getBooks = createAsyncThunk('books/getBooks', async () => {
+  const { data } = await axios.get(`${baseURL}/apps/${appId}/books`);
+  const changeData = Object.entries(data).map((entry) => {
+    const [bookId, [book]] = entry;
+    book.itemId = bookId;
+    return entry[1][0];
+  });
+  return changeData;
 });
 
-// add a book
-export const addBook = createAsyncThunk('books/addBook', async (bookToAdd) => {
-  try {
-    const resp = await axios.post(URL, bookToAdd);
-    return resp.data;
-  } catch (error) {
-    throw new Error('Failed to add');
-  }
-});
+export const addBook = createAsyncThunk(
+  'books/addBook',
+  async ({ title, author, category }, { dispatch }) => {
+    await axios.post(`${baseURL}/apps/${appId}/books`, {
+      item_id: uuidv4(),
+      title,
+      author,
+      category,
+    });
+    dispatch(getBooks());
+  },
+);
 
-// delete a book
-export const deleteBook = createAsyncThunk('books/deleteBook', async (id) => {
-  try {
-    await axios.delete(`${URL}/${id}`);
-    return ('book was delete');
-  } catch (error) {
-    throw new Error('Failed to remove');
-  }
-});
+export const removeBook = createAsyncThunk(
+  'books/removeBook',
+  async (itemId, { dispatch }) => {
+    await axios.delete(`${baseURL}/apps/${appId}/books/${itemId}`, {
+      itemId,
+    });
+    dispatch(getBooks());
+  },
+);
 
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchBooks.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.books = action.payload;
-        state.books.sort((a, b) => a.title.localeCompare(b.title));
-      })
-      .addCase(fetchBooks.rejected, (state) => {
-        state.isLoading = false;
-      })
-      .addCase(addBook.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(addBook.fulfilled, (state, action) => {
-        state.books.push({
-
-          id: action.meta.arg.item_id,
-          ...action.meta.arg,
-        });
-        state.books.sort((a, b) => a.title.localeCompare(b.title));
-      })
-      .addCase(addBook.rejected, (state) => {
-        state.isLoading = false;
-      })
-      .addCase(deleteBook.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(deleteBook.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.books = state.books.filter((book) => book.item_id !== action.meta.arg);
-      });
+  reducers: {},
+  extraReducers: {
+    [getBooks.pending]: (state) => {
+      state.status = 'pending';
+    },
+    [getBooks.fulfilled]: (state, { payload }) => {
+      state.status = 'fulfilled';
+      state.books = payload || [];
+      state.status = 'idle';
+    },
+    [getBooks.rejected]: (state) => {
+      state.status = 'rejected';
+    },
+    [addBook.fulfilled]: (state) => {
+      state.status = 'fulfilled';
+    },
+    [addBook.rejected]: (state) => {
+      state.status = 'rejected';
+    },
+    [addBook.rejected]: (state) => {
+      state.status = 'rejected';
+    },
+    [addBook.pending]: (state) => {
+      state.status = 'pending';
+    },
+    [removeBook.fulfilled]: (state) => {
+      state.status = 'fulfilled';
+    },
+    [removeBook.pending]: (state) => {
+      state.status = 'pending';
+    },
+    [removeBook.rejected]: (state) => {
+      state.status = 'rejected';
+    },
   },
 });
 
