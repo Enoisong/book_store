@@ -11,7 +11,8 @@
 .form-container > h2 {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #888;;    
+    color: #888;;  
+    
 }
 
 .add-form {
@@ -19,6 +20,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+ 
 }
 
 .add-form input,
@@ -48,4 +50,5 @@
     background-color: #0290ff;
     border-radius: 3px;
     border: none;
-}
+} 
+  

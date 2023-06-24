@@ -18,9 +18,7 @@ export default function Navigation() {
           </ul>
         </nav>
       </div>
-      <div className="profile">
-        <i className="material-symbols-outlined">account_circle</i>
-      </div>
+
     </header>
   );
 }
