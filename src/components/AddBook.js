@@ -44,9 +44,12 @@ export default function AddBook() {
           <option hidden value="" disabled selected>
             Category
           </option>
-          <option value="Action">Action</option>
-          <option value="Science Fiction">Science Fiction</option>
-          <option value="Economy">Economy</option>
+          <option value="Religious">Religious</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Humanities">Humanities</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Programming">Programming</option>
+          <option value="Drama">Drama</option>
         </select>
         <button type="submit" onClick={handleSubmit}>
           ADD BOOK
