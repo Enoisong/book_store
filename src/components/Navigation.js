@@ -14,11 +14,16 @@ export default function Navigation() {
             </li>
             <li>
               <NavLink to="/categories">CATEGORIES</NavLink>
-            </li>
-          </ul>
+            </li>                     
+          </ul>          
         </nav>
       </div>
-
+      <div className="img">    
+      <img src="https://emoji.fileformat.info/png/1f464.png" alt=" "></img>            
+      </div>
     </header>
   );
 }
+
+ 
+               
