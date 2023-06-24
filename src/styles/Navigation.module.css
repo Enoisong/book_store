@@ -1,37 +1,36 @@
 header {
-    padding: 1.5% 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
+  padding: 1.5% 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
 }
 
 .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-    list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #121212;
-    font-size: 0.8rem;
-    opacity: 0.5;
-
+  text-decoration: none;
+  color: #121212;
+  font-size: 0.8rem;
+  opacity: 0.5;
 }
 
 a[class="active"] {
-    opacity: 1;
+  opacity: 1;
 }
 
 .nav-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 }
 
 .nav-wrapper h2 {
-    color: #0290ff;
-    font-size: 1.8rem;
+  color: #0290ff;
+  font-size: 1.8rem;
 }
